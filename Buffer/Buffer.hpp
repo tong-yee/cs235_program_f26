@@ -17,6 +17,8 @@ public:
 
     int& at(std::size_t i);
     std::size_t size() const;
+    
+    Buffer& operator= (const Buffer& other);
 
 private:
     int* data_;

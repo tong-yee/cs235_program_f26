@@ -46,3 +46,22 @@ std::size_t Buffer::size() const {
 //     data_ = newData;
 //     size_ = newSize;
 // }
+
+Buffer& Buffer::operator= (const Buffer& other) {
+    if (this == &other) {
+        return *this;
+    }
+
+    int* newData = new int[other.size_]; // allocate
+    for (std::size_t i = 0; i < other.size_; i++) { // copy
+        // cannot write other.size_ by size_ since size_ is not updated yet
+        newData[i] = other.data_[i];
+    }
+
+    delete[] data_; // release old data
+    data_ = newData;
+    
+    size_ = other.size_; // set data member size_
+
+    return *this;
+}
