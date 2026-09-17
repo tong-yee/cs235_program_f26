@@ -23,7 +23,6 @@ void Buffer::grow(std::size_t newSize) {
     for (std::size_t i = 0; i < size_; ++i) {
         newData[i] = data_[i];
     }
-    delete[] data_;
     data_ = newData;
     size_ = newSize;
 }
